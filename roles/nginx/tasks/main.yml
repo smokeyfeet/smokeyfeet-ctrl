@@ -1,0 +1,37 @@
+---
+# tasks file for nginx
+
+- name: Install nginx packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - nginx-common
+    - nginx-light
+
+- name: Ensure site config in place
+  template:
+    src: site.conf.j2
+    dest: "/etc/nginx/sites-available/{{ site.hostname }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart nginx
+
+- name: Ensure site is enabled
+  file:
+    src: "/etc/nginx/sites-available/{{ site.hostname }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ site.hostname }}.conf"
+    owner: root
+    group: root
+    state: link
+  notify:
+    - restart nginx
+
+- name: Ensure site directory exists
+  file:
+    path: /var/www/{{ site.hostname }}
+    state: directory
+    mode: 0755

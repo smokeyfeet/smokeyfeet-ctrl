@@ -1,0 +1,5 @@
+[web]
+smokeyfeet-dev
+
+[vagrant:children]
+web

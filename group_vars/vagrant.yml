@@ -1,0 +1,8 @@
+---
+# vagrant specific vars
+
+environment: vagrant
+
+site:
+  domain: smokeyfeet.dev
+  hostname: www.smokeyfeet.dev

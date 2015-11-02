@@ -1,0 +1,8 @@
+---
+
+- name: Static site
+  hosts: web
+
+  roles:
+    - {role: base, sudo: yes}
+    - {role: nginx, sudo: yes}

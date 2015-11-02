@@ -1,0 +1,9 @@
+---
+# tasks file for base
+
+- name: Install base packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items: base_packages

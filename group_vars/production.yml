@@ -1,0 +1,8 @@
+---
+# production specific vars
+
+environment: production
+
+site:
+  domain: smokeyfeet.com
+  hostname: www.smokeyfeet.com

@@ -1,0 +1,17 @@
+---
+
+- name: Ensure postgres user created
+  sudo: True
+  sudo_user: postgres
+  postgresql_user:
+    name: "{{ sf_db_user }}"
+    password: "{{ sf_db_pass }}"
+
+- name: Ensure postgres db created
+  sudo: True
+  sudo_user: postgres
+  postgresql_db:
+    name: "{{ sf_db_name }}"
+    owner: "{{ sf_db_user }}"
+    encoding: UTF8
+    template: template0

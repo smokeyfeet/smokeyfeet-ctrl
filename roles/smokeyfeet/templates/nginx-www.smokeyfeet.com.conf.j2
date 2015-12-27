@@ -2,12 +2,16 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	server_name {{ site.hostname }};
+	server_name {{ site.domain }} www.{{ site.hostname }};
 
 	root /var/www/{{ site.hostname }};
 	index index.html;
 
 	location / {
 		try_files $uri $uri/ =404;
+	}
+
+	location ~* \.(?:jpe?g|gif|png|js|css)$ {
+		expires 1w;
 	}
 }

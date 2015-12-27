@@ -1,5 +1,5 @@
 [web]
 smokeyfeet-dev
 
-[vagrant:children]
+[local:children]
 web

@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "debian-8.2.0-amd64"
+  config.vm.box = "debian/jessie64"
 
   config.vm.host_name = "smokeyfeet-dev"
 

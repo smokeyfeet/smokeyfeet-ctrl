@@ -1,0 +1,59 @@
+---
+
+- name: Ensure nginx packages installed
+  sudo: True
+  apt: pkg={{ item }}
+  with_items:
+    - nginx-common
+    - nginx-full
+
+## website
+
+- name: Ensure nginx config in place
+  sudo: True
+  template:
+    src: nginx-www.smokeyfeet.com.conf.j2
+    dest: "/etc/nginx/sites-available/www.{{ site.domain }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart nginx
+
+- name: Ensure nginx config is enabled
+  sudo: True
+  file:
+    src: "/etc/nginx/sites-available/www.{{ site.domain }}.conf"
+    dest: "/etc/nginx/sites-enabled/www.{{ site.domain }}.conf"
+    owner: root
+    group: root
+    state: link
+  notify: restart nginx
+
+- name: Ensure website directory exists
+  sudo: True
+  file:
+    path: "/var/www/www.{{ site.domain }}"
+    state: directory
+    mode: 0755
+
+## register
+
+- name: Ensure nginx config in place
+  sudo: True
+  template:
+    src: nginx-register.smokeyfeet.com.conf.j2
+    dest: "/etc/nginx/sites-available/register.{{ site.domain }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart nginx
+
+- name: Ensure nginx config is enabled
+  sudo: True
+  file:
+    src: "/etc/nginx/sites-available/register.{{ site.domain }}.conf"
+    dest: "/etc/nginx/sites-enabled/register.{{ site.domain }}.conf"
+    owner: root
+    group: root
+    state: link
+  notify: restart nginx

@@ -1,0 +1,18 @@
+---
+# tasks file for postgres
+
+- name: Ensure packages installed
+  apt: pkg={{ item }}
+  with_items:
+    - postgresql-9.4
+    - postgresql-server-dev-9.4
+    - python-psycopg2
+
+- name: Ensure config in place
+  template:
+    src: postgresql.conf.j2
+    dest: "/etc/postgresql/9.4/main/postgresql.conf"
+    owner: postgres
+    group: postgres
+    mode: 0644
+  notify: restart postgres

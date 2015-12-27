@@ -1,8 +1,10 @@
 ---
-# vagrant specific vars
+# local specific vars
 
-environment: vagrant
+environment: local
 
 site:
   domain: smokeyfeet.dev
   hostname: www.smokeyfeet.dev
+
+django_debug: True

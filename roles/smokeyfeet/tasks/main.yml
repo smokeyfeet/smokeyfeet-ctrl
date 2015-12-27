@@ -1,0 +1,7 @@
+---
+# tasks file for smokeyfeet
+
+- include: _database.yml
+- include: _django.yml
+- include: _uwsgi.yml
+- include: _nginx.yml

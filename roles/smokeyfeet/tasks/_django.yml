@@ -1,0 +1,42 @@
+---
+
+- name: Ensure django packages installed
+  apt: pkg={{ item }}
+  sudo: True
+  with_items:
+    - git
+    - python3-pip
+    - python3-psycopg2
+    - python3-virtualenv
+    - virtualenv
+
+- name: Manually create the initial virtualenv
+  command: "virtualenv {{ sf_venv_path }} -p /usr/bin/python3.4"
+
+- name: Check out the repository
+  git:
+    repo: "{{ sf_reg_repo_url }}"
+    dest: "{{ sf_proj_path }}"
+    accept_hostkey: yes
+
+- name: Install requirements.txt
+  pip:
+    requirements: "{{ sf_proj_path }}/requirements/local.txt"
+    virtualenv: "{{ sf_venv_path }}"
+
+- name: Ensure django config in place
+  template:
+    src: settings.local.py.j2
+    dest: "{{ sf_proj_path }}/smokeyfeet/settings.py"
+    mode: 0644
+  notify:
+    - restart nginx
+
+- name: Sync the database, apply migrations, collect static content
+  django_manage:
+    command: "{{ item }}"
+    app_path: "{{ sf_proj_path }}"
+    virtualenv: "{{ sf_venv_path }}"
+  with_items:
+    - migrate
+    #- collectstatic

@@ -1,0 +1,16 @@
+---
+# vars file for smokeyfeet
+
+sf_db_name: smokeyfeet
+sf_db_user: smokeyfeet
+sf_db_pass: secret
+
+sf_proj_name: smokeyfeet
+sf_user: "{{ ansible_ssh_user }}"
+sf_venv_path: "{{ ansible_env.HOME }}/venv"
+sf_reg_repo_url: https://github.com/smokeyfeet/smokeyfeet-registration.git
+sf_proj_dirname: smokeyfeet-registration
+sf_proj_path: "{{ ansible_env.HOME }}/{{ sf_proj_dirname }}"
+sf_conf_path: /etc/nginx/conf
+sf_python: "{{ sf_venv_path }}/bin/python"
+sf_manage: "{{ sf_python }} {{ sf_proj_path }}/manage.py"

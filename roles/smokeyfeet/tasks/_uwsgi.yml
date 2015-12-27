@@ -1,0 +1,29 @@
+---
+
+- name: Ensure packages installed
+  sudo: True
+  apt: pkg={{ item }}
+  with_items:
+    - uwsgi
+    - uwsgi-plugin-python3
+
+- name: Ensure config in place
+  sudo: True
+  template:
+    src: uwsgi.ini.j2
+    dest: /etc/uwsgi/apps-available/smokeyfeet.ini
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart uwsgi
+
+- name: Enable through symlink
+  sudo: True
+  file:
+    src: /etc/uwsgi/apps-available/smokeyfeet.ini
+    path: /etc/uwsgi/apps-enabled/smokeyfeet.ini
+    state: link
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart uwsgi

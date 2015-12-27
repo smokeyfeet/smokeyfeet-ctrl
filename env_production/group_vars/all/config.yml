@@ -6,3 +6,5 @@ environment: production
 site:
   domain: smokeyfeet.com
   hostname: www.smokeyfeet.com
+
+django_debug: False

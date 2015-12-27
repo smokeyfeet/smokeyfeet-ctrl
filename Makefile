@@ -5,9 +5,9 @@ VAULT_PWD_FILE=~/.smokeyfeet-vault
 default:
 	@echo "Useful targets: vagrant production"
 
-vagrant:
+local:
 	$(ANSIBLE_PLAYBOOK) \
-		--inventory-file=$(CURDIR)/inventories/vagrant \
+		--inventory-file=$(CURDIR)/env_local/ \
 		--private-key=$(PRIVATE_KEY) \
 		--user=vagrant \
 		--vault-password-file=$(VAULT_PWD_FILE) \
@@ -15,6 +15,6 @@ vagrant:
 
 production:
 	$(ANSIBLE_PLAYBOOK) \
-		--inventory-file=$(CURDIR)/inventories/production \
+		--inventory-file=$(CURDIR)/env_production/ \
 		--vault-password-file=$(VAULT_PWD_FILE) \
 		$(CURDIR)/site.yml

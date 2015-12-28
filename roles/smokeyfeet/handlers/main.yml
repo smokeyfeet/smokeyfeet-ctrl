@@ -2,11 +2,13 @@
 # handlers file for smokeyfeet
 
 - name: restart uwsgi
+  sudo: True
   service:
     name: uwsgi
     state: restarted
 
 - name: restart nginx
+  sudo: True
   service:
     name: nginx
     state: restarted

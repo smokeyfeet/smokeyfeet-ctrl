@@ -4,6 +4,11 @@ server {
 
 	server_name register.{{ site.domain }};
 
+	location /static/ {
+		autoindex on;
+		alias {{ sf_static_root }}/;
+	}
+
 	location / {
 		include uwsgi_params;
 		uwsgi_pass 127.0.0.1:3031;

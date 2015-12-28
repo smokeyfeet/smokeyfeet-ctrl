@@ -8,6 +8,8 @@ SECRET_KEY = "{{ django_secret }}"
 
 DEBUG = {{ django_debug }}
 
+STATIC_ROOT = '{{ sf_static_root }}'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

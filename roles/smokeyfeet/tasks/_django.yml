@@ -29,8 +29,7 @@
     src: settings.local.py.j2
     dest: "{{ sf_proj_path }}/smokeyfeet/settings.py"
     mode: 0644
-  notify:
-    - restart nginx
+  notify: restart uwsgi
 
 - name: Sync the database, apply migrations, collect static content
   django_manage:
@@ -39,4 +38,4 @@
     virtualenv: "{{ sf_venv_path }}"
   with_items:
     - migrate
-    #- collectstatic
+    - collectstatic

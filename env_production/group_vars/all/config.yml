@@ -1,13 +1,13 @@
 ---
 # production specific vars
 
-environment: production
+sf_environment: production
 
-website:
+sf_website:
   domain: smokeyfeet.com
   fqdn: www.smokeyfeet.com
 
-register:
+sf_register:
   domain: smokeyfeet.com
   fqdn: register.smokeyfeet.com
 

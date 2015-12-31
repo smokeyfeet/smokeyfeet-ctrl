@@ -2,7 +2,7 @@ server {
     listen 80;
     listen [::]:80;
 
-    server_name {{ register.fqdn }};
+    server_name {{ sf_register.fqdn }};
 
     location /static/ {
         autoindex on;

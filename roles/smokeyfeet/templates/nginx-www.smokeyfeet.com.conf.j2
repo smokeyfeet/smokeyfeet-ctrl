@@ -2,9 +2,9 @@ server {
     listen 80;
     listen [::]:80;
 
-    server_name {{ website.domain }} {{ website.fqdn }};
+    server_name {{ sf_website.domain }} {{ sf_website.fqdn }};
 
-    root /var/www/{{ website.fqdn }};
+    root /var/www/{{ sf_website.fqdn }};
     index index.html;
 
     location / {

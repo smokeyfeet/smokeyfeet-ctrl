@@ -13,7 +13,7 @@
   sudo: True
   template:
     src: nginx-www.smokeyfeet.com.conf.j2
-    dest: "/etc/nginx/sites-available/{{ website.fqdn }}.conf"
+    dest: "/etc/nginx/sites-available/{{ sf_website.fqdn }}.conf"
     owner: root
     group: root
     mode: 0644
@@ -22,8 +22,8 @@
 - name: Ensure nginx config is enabled
   sudo: True
   file:
-    src: "/etc/nginx/sites-available/{{ website.fqdn }}.conf"
-    dest: "/etc/nginx/sites-enabled/{{ website.fqdn }}.conf"
+    src: "/etc/nginx/sites-available/{{ sf_website.fqdn }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ sf_website.fqdn }}.conf"
     owner: root
     group: root
     state: link
@@ -32,7 +32,7 @@
 - name: Ensure website directory exists
   sudo: True
   file:
-    path: "/var/www/{{ website.fqdn }}"
+    path: "/var/www/{{ sf_website.fqdn }}"
     state: directory
     mode: 0755
 
@@ -42,7 +42,7 @@
   sudo: True
   template:
     src: nginx-register.smokeyfeet.com.conf.j2
-    dest: "/etc/nginx/sites-available/{{ register.fqdn }}.conf"
+    dest: "/etc/nginx/sites-available/{{ sf_register.fqdn }}.conf"
     owner: root
     group: root
     mode: 0644
@@ -51,8 +51,8 @@
 - name: Ensure nginx config is enabled
   sudo: True
   file:
-    src: "/etc/nginx/sites-available/{{ register.fqdn }}.conf"
-    dest: "/etc/nginx/sites-enabled/{{ register.fqdn }}.conf"
+    src: "/etc/nginx/sites-available/{{ sf_register.fqdn }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ sf_register.fqdn }}.conf"
     owner: root
     group: root
     state: link

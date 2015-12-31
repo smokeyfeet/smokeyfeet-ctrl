@@ -1,13 +1,13 @@
 ---
 # local specific vars
 
-environment: local
+sf_environment: local
 
-website:
+sf_website:
   domain: smokeyfeet.dev
   fqdn: www.smokeyfeet.dev
 
-register:
+sf_register:
   domain: smokeyfeet.dev
   fqdn: register.smokeyfeet.dev
 

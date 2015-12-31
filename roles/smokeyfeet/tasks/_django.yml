@@ -19,7 +19,7 @@
     dest: "{{ sf_proj_path }}"
     accept_hostkey: yes
 
-- name: Install requirements.txt
+- name: Install pip packages from requirements.txt
   pip:
     requirements: "{{ sf_proj_path }}/requirements/local.txt"
     virtualenv: "{{ sf_venv_path }}"
@@ -42,6 +42,10 @@
 
 - name: Load default pass types
   django_manage:
-    command: "loaddata pass_types"
+    command: "loaddata {{ item }}"
     app_path: "{{ sf_proj_path }}"
     virtualenv: "{{ sf_venv_path }}"
+  with_items:
+    - competition_types
+    - pass_types
+    - volunteer_types

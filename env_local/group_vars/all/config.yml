@@ -3,8 +3,12 @@
 
 environment: local
 
-site:
+website:
   domain: smokeyfeet.dev
-  hostname: www.smokeyfeet.dev
+  fqdn: www.smokeyfeet.dev
+
+register:
+  domain: smokeyfeet.dev
+  fqdn: register.smokeyfeet.dev
 
 django_debug: True

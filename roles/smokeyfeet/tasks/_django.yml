@@ -31,7 +31,7 @@
     mode: 0644
   notify: restart uwsgi
 
-- name: Sync the database, apply migrations, collect static content
+- name: Apply migrations, collect static content
   django_manage:
     command: "{{ item }}"
     app_path: "{{ sf_proj_path }}"
@@ -39,3 +39,9 @@
   with_items:
     - migrate
     - collectstatic
+
+- name: Load default pass types
+  django_manage:
+    command: "loaddata pass_types"
+    app_path: "{{ sf_proj_path }}"
+    virtualenv: "{{ sf_venv_path }}"

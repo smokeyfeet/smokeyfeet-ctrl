@@ -6,7 +6,7 @@ ADMINS = [('Smokey Feet', 'foo@example.com')]
 
 SECRET_KEY = "{{ django_secret }}"
 
-ALLOWED_HOSTS = ['.{{ site.domain }}']
+ALLOWED_HOSTS = ['.{{ website.domain }}']
 
 STATIC_ROOT = '{{ sf_static_root }}'
 
@@ -29,5 +29,7 @@ EMAIL_USE_TLS = True
 EMAIL_TIMEOUT = 30  # In seconds
 
 # Custom
+
+EMAIL_BASE_URI = 'http://{{ register.fqdn }}'
 
 MOLLIE_API_KEY = '{{ mollie_api_key }}'

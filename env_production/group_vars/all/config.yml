@@ -3,8 +3,12 @@
 
 environment: production
 
-site:
+website:
   domain: smokeyfeet.com
-  hostname: www.smokeyfeet.com
+  fqdn: www.smokeyfeet.com
+
+register:
+  domain: smokeyfeet.com
+  fqdn: register.smokeyfeet.com
 
 django_debug: False

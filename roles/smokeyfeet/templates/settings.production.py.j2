@@ -6,7 +6,7 @@ ADMINS = [('Smokey Feet Webmaster', 'webmaster@smokeyfeet.com')]
 
 SECRET_KEY = "{{ django_secret }}"
 
-DEBUG = {{ django_debug }}
+ALLOWED_HOSTS = ['.{{ sf_website.domain }}']
 
 STATIC_ROOT = '{{ sf_static_root }}'
 

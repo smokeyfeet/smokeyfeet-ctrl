@@ -15,3 +15,4 @@ sf_static_root: "{{ ansible_env.HOME}}/registration-static"
 sf_conf_path: /etc/nginx/conf
 sf_python: "{{ sf_venv_path }}/bin/python"
 sf_manage: "{{ sf_python }} {{ sf_proj_path }}/manage.py"
+sf_log_dir: "{{ ansible_env.HOME }}"

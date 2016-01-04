@@ -7,11 +7,12 @@ server {
     root /var/www/{{ sf_website.fqdn }};
     index index.html;
 
-    location / {
-        try_files $uri $uri/ =404;
+    location ~* \.(?:jpe?g|gif|png|js|css)$ {
+        expires 1h;
     }
 
-    location ~* \.(?:jpe?g|gif|png|js|css)$ {
-        expires 1w;
+    location / {
+        try_files $uri $uri/ =404;
+        expires 1h;
     }
 }

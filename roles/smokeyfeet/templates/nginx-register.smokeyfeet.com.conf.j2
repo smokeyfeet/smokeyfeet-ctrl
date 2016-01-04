@@ -7,6 +7,7 @@ server {
     location /static/ {
         autoindex on;
         alias {{ sf_static_root }}/;
+        expires 1h;
     }
 
     location / {

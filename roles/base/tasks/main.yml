@@ -7,3 +7,11 @@
     state: present
     update_cache: yes
   with_items: base_packages
+
+- name: Ensure our sysctl config in place
+  template:
+    src: sysctl-local.conf.j2
+    dest: "/etc/sysctl.d/local.conf"
+    owner: root
+    group: root
+    mode: 0644

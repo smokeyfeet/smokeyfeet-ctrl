@@ -18,11 +18,13 @@
     repo: "{{ sf_reg_repo_url }}"
     dest: "{{ sf_proj_path }}"
     accept_hostkey: yes
+  notify: restart uwsgi
 
 - name: Install pip packages from requirements.txt
   pip:
     requirements: "{{ sf_proj_path }}/requirements/local.txt"
     virtualenv: "{{ sf_venv_path }}"
+  notify: restart uwsgi
 
 - name: Ensure django config in place
   template:
@@ -39,6 +41,7 @@
   with_items:
     - migrate
     - collectstatic
+  notify: restart uwsgi
 
 - name: Load default pass types
   django_manage:

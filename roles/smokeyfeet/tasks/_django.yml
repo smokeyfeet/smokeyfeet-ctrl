@@ -18,6 +18,7 @@
     repo: "{{ sf_reg_repo_url }}"
     dest: "{{ sf_proj_path }}"
     accept_hostkey: yes
+    version: "{{ sf_register.git_version }}"
   notify: restart uwsgi
 
 - name: Install pip packages from requirements.txt

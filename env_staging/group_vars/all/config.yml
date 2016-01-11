@@ -1,0 +1,15 @@
+---
+# local specific vars
+
+sf_environment: staging
+
+sf_website:
+  domain: smokeyfeet.com
+  fqdn: www-staging.smokeyfeet.com
+
+sf_register:
+  domain: smokeyfeet.com
+  fqdn: register-staging.smokeyfeet.com
+  git_version: unstable
+
+django_debug: False

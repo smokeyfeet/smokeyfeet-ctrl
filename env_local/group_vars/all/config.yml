@@ -10,5 +10,6 @@ sf_website:
 sf_register:
   domain: smokeyfeet.dev
   fqdn: register.smokeyfeet.dev
+  git_version: unstable
 
 django_debug: True

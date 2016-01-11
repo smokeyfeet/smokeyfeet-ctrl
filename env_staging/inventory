@@ -1,0 +1,5 @@
+[web]
+149-210-247-41.colo.transip.net
+
+[staging:children]
+web

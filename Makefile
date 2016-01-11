@@ -21,6 +21,19 @@ local:
 		--vault-password-file=$(VAULT_PWD_FILE) \
 		$(CURDIR)/site.yml
 
+staging-vars:
+	$(ANSIBLE) \
+		-m debug -a var=hostvars \
+		-i $(CURDIR)/env_staging/ \
+		--vault-password-file $(VAULT_PWD_FILE) \
+		all
+
+staging:
+	$(ANSIBLE_PLAYBOOK) \
+		--inventory-file=$(CURDIR)/env_staging/ \
+		--vault-password-file=$(VAULT_PWD_FILE) \
+		$(CURDIR)/site.yml
+
 production-vars:
 	$(ANSIBLE) \
 		-m debug -a var=hostvars \

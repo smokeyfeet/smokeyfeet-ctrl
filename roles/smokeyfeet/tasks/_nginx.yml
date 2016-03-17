@@ -1,7 +1,7 @@
 ---
 
 - name: Ensure nginx packages installed
-  sudo: True
+  become: True
   apt: pkg={{ item }}
   with_items:
     - nginx-common
@@ -10,7 +10,7 @@
 ## website
 
 - name: Ensure nginx config in place
-  sudo: True
+  become: True
   template:
     src: nginx-www.smokeyfeet.com.conf.j2
     dest: "/etc/nginx/sites-available/{{ sf_website.fqdn }}.conf"
@@ -20,7 +20,7 @@
   notify: restart nginx
 
 - name: Ensure nginx config is enabled
-  sudo: True
+  become: True
   file:
     src: "/etc/nginx/sites-available/{{ sf_website.fqdn }}.conf"
     dest: "/etc/nginx/sites-enabled/{{ sf_website.fqdn }}.conf"
@@ -30,7 +30,7 @@
   notify: restart nginx
 
 - name: Ensure website directory exists
-  sudo: True
+  become: True
   file:
     path: "/var/www/{{ sf_website.fqdn }}"
     state: directory
@@ -39,7 +39,7 @@
 ## register
 
 - name: Ensure nginx config in place
-  sudo: True
+  become: True
   template:
     src: nginx-register.smokeyfeet.com.conf.j2
     dest: "/etc/nginx/sites-available/{{ sf_register.fqdn }}.conf"
@@ -49,7 +49,7 @@
   notify: restart nginx
 
 - name: Ensure nginx config is enabled
-  sudo: True
+  become: True
   file:
     src: "/etc/nginx/sites-available/{{ sf_register.fqdn }}.conf"
     dest: "/etc/nginx/sites-enabled/{{ sf_register.fqdn }}.conf"

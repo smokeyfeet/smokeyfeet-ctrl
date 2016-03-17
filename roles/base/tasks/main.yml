@@ -6,7 +6,7 @@
     name: "{{ item }}"
     state: present
     update_cache: yes
-  with_items: base_packages
+  with_items: '{{ base_packages }}'
 
 - name: Ensure our sysctl config in place
   template:

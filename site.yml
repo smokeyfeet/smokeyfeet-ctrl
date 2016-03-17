@@ -5,16 +5,16 @@
 
   pre_tasks:
     - name: Ensure apt cache updated
-      sudo: yes
+      become: yes
       apt:
         cache_valid_time: 86400
         update_cache: yes
 
   roles:
     - role: base
-      sudo: yes
+      become: yes
 
     - role: postgres
-      sudo: yes
+      become: yes
 
     - role: smokeyfeet

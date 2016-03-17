@@ -2,7 +2,7 @@
 
 - name: Ensure django packages installed
   apt: pkg={{ item }}
-  sudo: True
+  become: True
   with_items:
     - git
     - python3-pip
@@ -34,14 +34,18 @@
     mode: 0644
   notify: restart uwsgi
 
-- name: Apply migrations, collect static content
+- name: Apply migrations
   django_manage:
-    command: "{{ item }}"
+    command: migrate
     app_path: "{{ sf_proj_path }}"
     virtualenv: "{{ sf_venv_path }}"
-  with_items:
-    - migrate
-    - collectstatic
+  notify: restart uwsgi
+
+- name: Collect static content
+  django_manage:
+    command: "collectstatic"
+    app_path: "{{ sf_proj_path }}"
+    virtualenv: "{{ sf_venv_path }}"
   notify: restart uwsgi
 
 - name: Load default pass types

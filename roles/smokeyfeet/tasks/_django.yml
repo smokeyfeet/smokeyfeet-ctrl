@@ -23,7 +23,7 @@
 
 - name: Install pip packages from requirements.txt
   pip:
-    requirements: "{{ sf_proj_path }}/requirements/local.txt"
+    requirements: "{{ sf_proj_path }}/requirements.txt"
     virtualenv: "{{ sf_venv_path }}"
   notify: restart uwsgi
 

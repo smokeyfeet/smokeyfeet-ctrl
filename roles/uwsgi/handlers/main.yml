@@ -1,0 +1,14 @@
+---
+# handlers file for uwsgi
+#
+- name: reload uwsgi
+  become: True
+  service:
+    name: uwsgi
+    state: reloaded
+
+- name: restart uwsgi
+  become: True
+  service:
+    name: uwsgi
+    state: restarted

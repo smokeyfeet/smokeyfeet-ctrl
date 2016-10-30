@@ -17,4 +17,10 @@
     - role: postgres
       become: yes
 
+    - role: uwsgi
+      become: yes
+
+    - role: nginx
+      become: yes
+
     - role: smokeyfeet

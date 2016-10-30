@@ -1,0 +1,9 @@
+---
+# tasks file for uwsgi
+
+- name: Ensure packages installed
+  become: True
+  apt: pkg={{ item }}
+  with_items:
+    - uwsgi
+    - uwsgi-plugin-python3

@@ -1,11 +1,5 @@
 ---
 
-- name: Ensure packages installed
-  become: True
-  apt: pkg={{ item }}
-  with_items:
-    - uwsgi
-    - uwsgi-plugin-python3
 
 - name: Ensure config in place
   become: True

@@ -1,14 +1,2 @@
 ---
 # handlers file for smokeyfeet
-
-- name: restart uwsgi
-  become: True
-  service:
-    name: uwsgi
-    state: restarted
-
-- name: restart nginx
-  become: True
-  service:
-    name: nginx
-    state: restarted

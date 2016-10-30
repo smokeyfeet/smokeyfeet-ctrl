@@ -1,0 +1,9 @@
+---
+# tasks file for nginx
+
+- name: Ensure nginx packages installed
+  become: True
+  apt: pkg={{ item }}
+  with_items:
+    - nginx-common
+    - nginx-full

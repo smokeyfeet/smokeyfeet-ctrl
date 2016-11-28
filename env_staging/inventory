@@ -1,5 +1,5 @@
 [web]
-149-210-247-41.colo.transip.net
+register.testing.smokeyfeet.com
 
 [staging:children]
 web

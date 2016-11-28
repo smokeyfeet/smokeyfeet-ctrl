@@ -1,5 +1,5 @@
 [web]
-37-97-133-137.colo.transip.net
+register.smokeyfeet.com
 
 [production:children]
 web

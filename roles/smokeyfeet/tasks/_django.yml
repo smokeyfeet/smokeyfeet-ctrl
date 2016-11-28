@@ -19,6 +19,7 @@
     dest: "{{ sf_proj_path }}"
     accept_hostkey: yes
     version: "{{ sf_register.git_version }}"
+    force: yes
   notify: restart uwsgi
 
 - name: Install pip packages from requirements.txt
@@ -48,12 +49,12 @@
     virtualenv: "{{ sf_venv_path }}"
   notify: restart uwsgi
 
-- name: Load default pass types
-  django_manage:
-    command: "loaddata {{ item }}"
-    app_path: "{{ sf_proj_path }}"
-    virtualenv: "{{ sf_venv_path }}"
-  with_items:
-    - competition_types
-    - pass_types
-    - volunteer_types
+#- name: Load default pass types
+  #django_manage:
+    #command: "loaddata {{ item }}"
+    #app_path: "{{ sf_proj_path }}"
+    #virtualenv: "{{ sf_venv_path }}"
+  #with_items:
+    #- competition_types
+    #- pass_types
+    #- volunteer_types

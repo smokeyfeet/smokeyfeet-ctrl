@@ -1,5 +1,2 @@
 [web]
-smokeyfeet-dev
-
-[local:children]
-web
+register.smokeyfeet.test

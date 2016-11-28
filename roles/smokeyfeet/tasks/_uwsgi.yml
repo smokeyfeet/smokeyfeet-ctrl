@@ -1,10 +1,9 @@
 ---
 
-
 - name: Ensure config in place
   become: True
   template:
-    src: uwsgi.ini.j2
+    src: uwsgi-smokeyfeet.ini.j2
     dest: /etc/uwsgi/apps-available/smokeyfeet.ini
     owner: root
     group: root

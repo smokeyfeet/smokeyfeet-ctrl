@@ -3,6 +3,9 @@
 - name: Smokey Feet
   hosts: web
 
+  environment:
+    LC_ALL: 'en_US.UTF-8'
+
   pre_tasks:
     - name: Ensure apt cache updated
       become: yes

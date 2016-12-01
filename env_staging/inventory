@@ -1,5 +1,5 @@
 [web]
-register.testing.smokeyfeet.com
+register.staging.smokeyfeet.com
 
 [staging:children]
 web

@@ -23,14 +23,8 @@ DATABASES = {
     }
 }
 
-EMAIL_HOST = '{{ django_email_host }}'
-EMAIL_PORT = '{{ django_email_port }}'
-EMAIL_HOST_USER = '{{ django_email_host_user }}'
-EMAIL_HOST_PASSWORD = '{{ django_email_host_password }}'
-EMAIL_USE_TLS = True
-EMAIL_TIMEOUT = 30  # In seconds
-
 DEFAULT_FROM_EMAIL = 'Smokey Feet <info@smokeyfeet.com>'
+EMAIL_BACKEND = 'anymail.backends.mailgun.MailgunBackend'
 
 LOGGING = {
     'version': 1,
@@ -73,6 +67,11 @@ LOGGING = {
 }
 
 # Custom
+
+ANYMAIL = {
+    "MAILGUN_API_KEY": "{{ mailgun_api_key }}",
+    "MAILGUN_SENDER_DOMAIN": "mg.smokeyfeet.com",
+}
 
 EMAIL_BASE_URI = 'http://{{ sf_register.fqdn }}'
 

@@ -3,10 +3,6 @@
 
 sf_environment: local
 
-sf_website:
-  domain: smokeyfeet.test
-  fqdn: www.smokeyfeet.test
-
 sf_register:
   domain: smokeyfeet.test
   fqdn: register.smokeyfeet.test

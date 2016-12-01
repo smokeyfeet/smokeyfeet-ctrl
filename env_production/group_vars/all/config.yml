@@ -3,10 +3,6 @@
 
 sf_environment: production
 
-sf_website:
-  domain: smokeyfeet.com
-  fqdn: www.smokeyfeet.com
-
 sf_register:
   domain: smokeyfeet.com
   fqdn: register.smokeyfeet.com

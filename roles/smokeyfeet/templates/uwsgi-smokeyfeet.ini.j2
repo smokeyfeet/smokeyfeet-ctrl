@@ -2,7 +2,7 @@
 chdir = {{ sf_proj_path }}
 chmod-socket = 666
 env = DJANGO_SETTINGS_MODULE=smokeyfeet.settings
-gid = emiel
+gid = {{ ansible_user_id }}
 master = true
 module = smokeyfeet.wsgi:application
 processes = 4
@@ -10,5 +10,5 @@ pythonpath = {{ sf_proj_path }}
 socket = /tmp/uwsgi-smokeyfeet.sock
 stats = 127.0.0.1:9191
 threads = 2
-uid = emiel
+uid = {{ ansible_user_id }}
 virtualenv = {{ sf_venv_path }}

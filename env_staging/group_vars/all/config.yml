@@ -1,5 +1,5 @@
 ---
-# local specific vars
+# staging specific vars
 
 sf_environment: staging
 

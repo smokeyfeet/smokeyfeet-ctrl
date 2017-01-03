@@ -4,6 +4,14 @@ server {
 
     server_name {{ sf_register.fqdn }};
 
+    location = /favicon.ico {
+        alias {{ sf_static_root }}/favicon/favicon.ico;
+    }
+
+    location = /browserconfig.xml {
+        alias {{ sf_static_root }}/favicon/browserconfig.xml;
+    }
+
     location /static/ {
         autoindex on;
         alias {{ sf_static_root }}/;

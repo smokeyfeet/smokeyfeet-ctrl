@@ -4,6 +4,7 @@
 base_packages:
   - fail2ban
   - git
+  - htop
   - sudo
   - tmux
   - vim

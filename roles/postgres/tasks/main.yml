@@ -7,6 +7,7 @@
     - postgresql-9.4
     - postgresql-server-dev-9.4
     - python-psycopg2
+    - autopostgresqlbackup
 
 - name: Ensure config in place
   template:
